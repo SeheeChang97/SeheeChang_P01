@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+from PySide2 import QtWidgets, QtCore
 
 class StairGenerator:
     def __init__(self):
