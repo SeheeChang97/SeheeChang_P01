@@ -15,9 +15,13 @@ class StairGenerator:
         main_grp = cmds.group(em=True, name=self.group_name)
         
         for i in range(count):
-            step = cmds.polyCube(w=width, h=height, d=1.0, name="step_#")[0]
-            cmds.setAttr(step + ".ty", i * offset)
-            cmds.setAttr(step + ".tz", i * 1.0)
+            step = cmds.polyCube(w=width, h=height, d=depth, name="step_#")[0]
+            
+            pos_y = (i * offset) + base_h
+            pos_z = i * depth
+            
+            cmds.setAttr(step + ".ty", pos_y)
+            cmds.setAttr(step + ".tz", pos_z)
             cmds.parent(step, main_grp)
             
             if handrail:
