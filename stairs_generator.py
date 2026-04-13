@@ -11,6 +11,8 @@ class StairGenerator:
         if cmds.objExists(self.group_name):
             cmds.delete(self.group_name)
    
+        main_grp = cmds.group(em=True, name=self.group_name)
+        
         for i in range(count):
           
             step_name = "step_{0}".format(i)
