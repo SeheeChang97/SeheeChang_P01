@@ -7,7 +7,10 @@ class StairGenerator:
         self.group_name = "stairs_grp"
 
     def create(self, count=10, width=3.0, height=1.0, offset=1.0, handrail=False):
-    
+
+        if cmds.objExists(self.group_name):
+            cmds.delete(self.group_name)
+   
         for i in range(count):
           
             step_name = "step_{0}".format(i)
