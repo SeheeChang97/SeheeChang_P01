@@ -72,3 +72,15 @@ class StairWindow(QtWidgets.QDialog):
         rail = self.handrail_check.isChecked()
         self.generator.create(count=count, width=width, handrail=rail)
 
+def show_window():
+    global my_stair_win
+    try:
+        my_stair_win.close()
+        my_stair_win.deleteLater()
+    except:
+        pass
+        
+    my_stair_win = StairWindow()
+    my_stair_win.show()
+
+show_window()
