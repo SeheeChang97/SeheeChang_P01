@@ -6,7 +6,7 @@ class StairGenerator:
        
         self.group_name = "stairs_grp"
 
-    def create(self, count=10, width=3.0, height=0.5, offset=1.0, handrail=False):
+    def create(self, count=10, width=3.0, height=1.0, offset=1.0, handrail=False):
     
         for i in range(count):
           
