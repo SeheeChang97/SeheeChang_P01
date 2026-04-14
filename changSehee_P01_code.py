@@ -74,8 +74,8 @@ class StairWindow(QtWidgets.QDialog):
         self.base_h_spin = QtWidgets.QDoubleSpinBox()
         self.base_h_spin.setRange(-10, 50); self.base_h_spin.setValue(0.0)
        
-        self.rail_check = QtWidgets.QCheckBox("Enable Handrail")
-        self.gen_btn = QtWidgets.QPushButton("Generate Procedural Asset")
+        self.rail_check = QtWidgets.QCheckBox("Enable Handrails")
+        self.gen_btn = QtWidgets.QPushButton("Generate Stairs")
         self.gen_btn.setMinimumHeight(40)
 
 
