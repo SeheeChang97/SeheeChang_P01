@@ -8,7 +8,7 @@ class StairGenerator:
     def __init__(self):
         self.group_name = "stairs_grp"
 
-    def create(self, count=10, width=3.0, height=1.0, offset=1.0, handrail=False):
+    def create(self, count=10, width=3.0, height=1.0, depth=1.2, offset=1.0, base_h=0.0, handrail=False):
         if cmds.objExists(self.group_name):
             cmds.delete(self.group_name)
         
@@ -16,7 +16,6 @@ class StairGenerator:
         
         for i in range(count):
             step = cmds.polyCube(w=width, h=height, d=depth, name="stairStep_#")[0]
-
             pos_y = (i * offset) + base_h + (height / 2.0)
             pos_z = i * depth
             
@@ -47,7 +46,6 @@ class StairWindow(QtWidgets.QDialog):
         self.create_connections()
 
     def create_widgets(self):
-       
         self.count_spin = QtWidgets.QSpinBox()
         self.count_spin.setRange(1, 100); self.count_spin.setValue(10)
         
@@ -86,13 +84,17 @@ class StairWindow(QtWidgets.QDialog):
         layout.addWidget(self.gen_btn)
 
     def create_connections(self):
-        self.create_btn.clicked.connect(self.on_generate_clicked)
+        self.gen_btn.clicked.connect(self.on_generate_clicked)
 
     def on_generate_clicked(self):
-        count = self.count_slider.value()
-        width = self.width_slider.value()
-        rail = self.handrail_check.isChecked()
-        self.generator.create(count=count, width=width, handrail=rail)
+        count = self.count_spin.value()
+        width = self.width_spin.value()
+        depth = self.depth_spin.value()
+        offset = self.offset_spin.value()
+        base_h = self.base_h_spin.value()
+        rail = self.rail_check.isChecked()
+
+        self.generator.create(count=count, width=width, depth=depth, offset=offset, base_h=base_h, handrail=rail)
 
 def show_window():
     global my_stair_win
