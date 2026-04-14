@@ -47,16 +47,25 @@ class StairWindow(QtWidgets.QDialog):
         self.create_connections()
 
     def create_widgets(self):
-        self.count_slider = QtWidgets.QSpinBox()
-        self.count_slider.setRange(1, 50)
-        self.count_slider.setValue(10)
+       
+        self.count_spin = QtWidgets.QSpinBox()
+        self.count_spin.setRange(1, 100); self.count_spin.setValue(10)
         
-        self.width_slider = QtWidgets.QDoubleSpinBox()
-        self.width_slider.setRange(0.1, 10.0)
-        self.width_slider.setValue(3.0)
+        self.width_spin = QtWidgets.QDoubleSpinBox()
+        self.width_spin.setValue(4.0)
         
-        self.handrail_check = QtWidgets.QCheckBox("Create Handrail")
-        self.create_btn = QtWidgets.QPushButton("Generate Stairs")
+        self.depth_spin = QtWidgets.QDoubleSpinBox()
+        self.depth_spin.setValue(1.2)
+        
+        self.offset_spin = QtWidgets.QDoubleSpinBox()
+        self.offset_spin.setValue(0.8)
+        
+        self.base_h_spin = QtWidgets.QDoubleSpinBox()
+        self.base_h_spin.setRange(-10, 50); self.base_h_spin.setValue(0.0)
+        
+        self.rail_check = QtWidgets.QCheckBox("Enable Handrail")
+        self.gen_btn = QtWidgets.QPushButton("Generate Procedural Asset")
+        self.gen_btn.setMinimumHeight(40)
 
     def create_layout(self):
         layout = QtWidgets.QVBoxLayout(self)
