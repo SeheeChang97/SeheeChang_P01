@@ -46,9 +46,8 @@ class StairWindow(QtWidgets.QDialog):
         self.setWindowTitle("Stair Generator")
         self.setMinimumWidth(300)
         self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint) 
-        
-        self.generator = StairGenerator() 
-        
+
+        self.generator = StairGenerator()      
         self.create_widgets()
         self.create_layout()
         self.create_connections()
