@@ -15,9 +15,9 @@ class StairGenerator:
         main_grp = cmds.group(em=True, name=self.group_name)
         
         for i in range(count):
-            step = cmds.polyCube(w=width, h=height, d=depth, name="step_#")[0]
-            
-            pos_y = (i * offset) + base_h
+            step = cmds.polyCube(w=width, h=height, d=depth, name="stairStep_#")[0]
+
+            pos_y = (i * offset) + base_h + (height / 2.0)
             pos_z = i * depth
             
             cmds.setAttr(step + ".ty", pos_y)
