@@ -24,11 +24,19 @@ class StairGenerator:
             cmds.parent(step, main_grp)
             
             if handrail:
-                rail = cmds.polyCylinder(r=0.1, h=2.0, name="rail_#")[0]
-                cmds.setAttr(rail + ".tx", (width / 2.0) - 0.2)
-                cmds.setAttr(rail + ".ty", (i * offset) + 1.0)
-                cmds.setAttr(rail + ".tz", i * 1.0)
-                cmds.parent(rail, main_grp)
+                 #right side
+                rail_r = cmds.polyCylinder(r=0.1, h=2.0, name="rail_r_#")[0]
+                cmds.setAttr(rail_r + ".tx", (width / 2.0) - 0.2)   
+                cmds.setAttr(rail_r + ".ty", pos_y + (height / 2.0) + 1.0) 
+                cmds.setAttr(rail_r + ".tz", pos_z)
+                cmds.parent(rail_r, main_grp)
+
+                #left side
+                rail_l = cmds.polyCylinder(r=0.1, h=2.0, name="rail_l_#")[0]
+                cmds.setAttr(rail_l + ".tx", -(width / 2.0) + 0.2) 
+                cmds.setAttr(rail_l + ".ty", pos_y + (height / 2.0) + 1.0)
+                cmds.setAttr(rail_l + ".tz", pos_z)
+                cmds.parent(rail_l, main_grp)
 
 # GUI 
 class StairWindow(QtWidgets.QDialog):
