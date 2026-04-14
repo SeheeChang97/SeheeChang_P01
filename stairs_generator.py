@@ -69,12 +69,21 @@ class StairWindow(QtWidgets.QDialog):
 
     def create_layout(self):
         layout = QtWidgets.QVBoxLayout(self)
-        layout.addWidget(QtWidgets.QLabel("Step Count:"))
-        layout.addWidget(self.count_slider)
-        layout.addWidget(QtWidgets.QLabel("Step Width:"))
-        layout.addWidget(self.width_slider)
-        layout.addWidget(self.handrail_check)
-        layout.addWidget(self.create_btn)
+        
+        layout.addWidget(QtWidgets.QLabel("Step Count"))
+        layout.addWidget(self.count_spin)
+        layout.addWidget(QtWidgets.QLabel("Step Width"))
+        layout.addWidget(self.width_spin)
+        layout.addWidget(QtWidgets.QLabel("Step Depth"))
+        layout.addWidget(self.depth_spin)
+        layout.addWidget(QtWidgets.QLabel("Step Offset"))
+        layout.addWidget(self.offset_spin)
+        layout.addWidget(QtWidgets.QLabel("Base Height"))
+        layout.addWidget(self.base_h_spin)
+        
+        layout.addSpacing(10)
+        layout.addWidget(self.rail_check)
+        layout.addWidget(self.gen_btn)
 
     def create_connections(self):
         self.create_btn.clicked.connect(self.on_generate_clicked)
